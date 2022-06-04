@@ -8,19 +8,19 @@ public class CustomButton : MonoBehaviour,
     IPointerDownHandler,
     IPointerUpHandler
 {
-    public readonly Action OnClickCallback;
+    public Action onClickCallback;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private CanvasGroup canvasGroup;
 
     public CustomButton(Action onClickCallback)
     {
-        OnClickCallback = onClickCallback;
+        this.onClickCallback = onClickCallback;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnClickCallback?.Invoke();
+        onClickCallback?.Invoke();
     }
 
     public void OnPointerDown(PointerEventData eventData)
